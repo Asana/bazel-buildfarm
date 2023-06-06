@@ -148,14 +148,14 @@ oss_audit(
 # Download cgroup-tools so that the worker is able to restrict actions via control groups.
 download_pkgs(
     name = "worker_pkgs",
-    image_tar = "@ubuntu-bionic//image",
-    packages = ["cgroup-tools"],
+    image_tar = "@ubuntu-focal//image",
+    packages = ["cgroup-tools", "default-jre", "default-jdk", "build-essential"],
     tags = ["container"],
 )
 
 install_pkgs(
     name = "worker_pkgs_image",
-    image_tar = "@ubuntu-bionic//image",
+    image_tar = "@ubuntu-focal//image",
     installables_tar = ":worker_pkgs.tar",
     installation_cleanup_commands = "rm -rf /var/lib/apt/lists/*",
     output_image_name = "worker_pkgs_image",

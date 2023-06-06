@@ -25,6 +25,14 @@ def buildfarm_images():
         registry = "gcr.io",
         repository = "distroless/java",
     )
+    
+    container_pull(
+        name = "ubuntu-focal",
+        digest = "sha256:b795f8e0caaaacad9859a9a38fe1c78154f8301fdaf0872eaf1520d66d9c0b98",
+        registry = "docker.io",
+        repository = "library/ubuntu",
+        tag = "focal"
+    )
 
     container_pull(
         name = "ubuntu-bionic",
